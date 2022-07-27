@@ -1,0 +1,5 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Communication/etc/communication.xsd">
+    <topic name="crud_data" request="Ziffity\Task\Api\Data\CustomInterface">
+        <handler name="crud_data" type="Ziffity\Task\Model\Consumer" method="process" />
+    </topic>
+</config>
