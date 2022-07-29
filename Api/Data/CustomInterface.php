@@ -7,13 +7,12 @@ namespace Ziffity\Task\Api\Data;
  */
 interface CustomInterface
 {
+    public const CUSTOMCART_ID         = 'id';
+    public const SKU                   = 'sku';
+    public const CUSTOMER_ID           = 'customerid';
+    public const QUOTE_ID              = 'quoteid';
+    public const CREATED_AT            = 'createdat';
 
-    const CUSTOMCART_ID         = 'id';
-    const SKU                   = 'sku';
-    const CUSTOMER_ID           = 'customerid';
-    const QUOTE_ID              = 'quoteid';
-    const CREATED_AT            = 'createdat';
-    
     /**
      * GetCustomCartId
      *
@@ -75,7 +74,7 @@ interface CustomInterface
     public function setQuoteId($quote_id);
 
     /**
-     * Get Created At 
+     * Get Created At
      *
      * @return string
      */
@@ -89,4 +88,3 @@ interface CustomInterface
      */
     public function setCreatedAt($created_at);
 }
-?>

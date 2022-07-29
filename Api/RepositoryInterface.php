@@ -1,5 +1,7 @@
 <?php
+
 namespace Ziffity\Task\Api;
+
 interface RepositoryInterface
 {
     /**
@@ -27,6 +29,7 @@ interface RepositoryInterface
      * @return \Ziffity\Task\Api\Data\CartInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
+
     public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria);
 
     /**

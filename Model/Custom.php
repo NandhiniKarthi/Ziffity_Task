@@ -1,83 +1,73 @@
-<?php 
+<?php
+
 namespace Ziffity\Task\Model;
 
 use Ziffity\Task\Api\Data\CustomInterface;
+use \Magento\Framework\Model\AbstractModel; 
 
-class Custom extends \Magento\Framework\Model\AbstractModel implements CustomInterface
+class Custom extends AbstractModel implements CustomInterface
 {
-
-   protected function _construct()
+    protected function _construct()
     {
-
         $this->_init("Ziffity\Task\Model\ResourceModel\Custom");
     }
 
-    public function getCustomCartId() 
+    public function getCustomCartId()
     {
-
-        return $this->getData(Self::CUSTOMCART_ID);
+        return $this->getData(self::CUSTOMCART_ID);
     }
 
-    
+
     public function setCustomCartId($customcart_id)
     {
-
-        return $this->setData(Self::CUSTOMCART_ID, $customcart_id);
+        return $this->setData(self::CUSTOMCART_ID, $customcart_id);
     }
 
 
     public function getSku()
     {
-        return $this->getData(Self::SKU);
+        return $this->getData(self::SKU);
     }
 
-    
+
     public function setSku($sku)
     {
-        return $this->setData(Self::SKU, $sku);
+        return $this->setData(self::SKU, $sku);
     }
 
-    
+
     public function getCustomerId()
     {
-        return $this->getData(Self::CUSTOMER_ID);
+        return $this->getData(self::CUSTOMER_ID);
     }
 
-    
+
     public function setCustomerId($customer_id)
     {
-        return $this->setData(Self::CUSTOMER_ID, $customer_id);
+        return $this->setData(self::CUSTOMER_ID, $customer_id);
     }
-   
-   
+
+
     public function getQuoteId()
     {
-        return $this->getData(Self::QUOTE_ID);
+        return $this->getData(self::QUOTE_ID);
     }
 
-   
+
     public function setQuoteId($quote_id)
     {
-        return $this->setData(Self::QUOTE_ID, $quote_id);
+        return $this->setData(self::QUOTE_ID, $quote_id);
     }
 
-   
+
     public function getCreatedAt()
     {
-        return $this->getData(Self::CREATED_AT);
+        return $this->getData(self::CREATED_AT);
     }
 
-    
+
     public function setCreatedAt($created_at)
     {
-        return $this->setData(Self::CREATED_AT, $created_at);
+        return $this->setData(self::CREATED_AT, $created_at);
     }
-
-   
-    
-
-   
-    
 }
-
-?>

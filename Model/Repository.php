@@ -14,37 +14,16 @@ use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Reflection\DataObjectProcessor;
 
-
-
 class Repository implements RepositoryInterface
 {
-   
     protected $resource;
-
-   
     protected $customCartFactory;
-
-    
     protected $customCartCollectionFactory;
-
-   
     protected $searchResultsFactory;
-
-   
     protected $dataObjectHelper;
-
-   
     protected $dataObjectProcessor;
-
-   
     protected $dataCustomCartFactory;
-
-    
     private $collectionProcessor;
-
-  
-
-  
     public function __construct(
         ResourceCustomCart $resource,
         CustomFactory $customCartFactory,
@@ -53,7 +32,7 @@ class Repository implements RepositoryInterface
         Data\CartInterfaceFactory $searchResultsFactory,
         DataObjectHelper $dataObjectHelper,
         DataObjectProcessor $dataObjectProcessor,
-        CollectionProcessorInterface $collectionProcessor 
+        CollectionProcessorInterface $collectionProcessor
     ) {
         $this->resource = $resource;
         $this->customCartFactory = $customCartFactory;
@@ -62,23 +41,17 @@ class Repository implements RepositoryInterface
         $this->dataObjectHelper = $dataObjectHelper;
         $this->dataCustomCartFactory = $dataCustomCartFactory;
         $this->dataObjectProcessor = $dataObjectProcessor;
-        $this->collectionProcessor = $collectionProcessor; 
+        $this->collectionProcessor = $collectionProcessor;
     }
-
-   
     public function save(Data\CustomInterface $Cart)
     {
-        
-       try {
+        try {
             $this->resource->save($Cart);
-    
         } catch (\Exception $exception) {
             throw new CouldNotSaveException(__($exception->getMessage()));
         }
         return $Cart;
     }
-
-   
     public function getById($CartId)
     {
         $customCart = $this->customCartFactory->create();
@@ -88,10 +61,9 @@ class Repository implements RepositoryInterface
         }
         return $customCart;
     }
-
     public function getList(\Magento\Framework\Api\SearchCriteriaInterface $criteria)
     {
-         $collection = $this->customCartCollectionFactory->create();
+        $collection = $this->customCartCollectionFactory->create();
 
         $this->collectionProcessor->process($criteria, $collection);
 
@@ -99,8 +71,6 @@ class Repository implements RepositoryInterface
         $searchResults->setItems($collection->getItems());
         return  $searchResults ;
     }
-
-    
     public function delete(Data\CustomInterface $Cart)
     {
         try {
@@ -110,12 +80,8 @@ class Repository implements RepositoryInterface
         }
         return true;
     }
-
-    
     public function deleteById($CartId)
     {
         return $this->delete($this->getById($CartId));
     }
-
-  
 }

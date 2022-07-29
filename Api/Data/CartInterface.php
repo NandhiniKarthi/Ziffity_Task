@@ -19,7 +19,7 @@ interface CartInterface extends SearchResultsInterface
     /**
      * Set Cart list.
      *
-     * @param \Ziffity\Task\Api\Data\CustomInterface[] $items
+     * @param  \Ziffity\Task\Api\Data\CustomInterface[] $items
      * @return $this
      */
     public function setItems(array $items);

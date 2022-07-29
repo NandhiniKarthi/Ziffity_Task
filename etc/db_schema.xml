@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-/**
- * Created By :
--->
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
    <table name="crud" resource="default" engine="innodb" comment="Data Base">
       <column xsi:type="smallint" name="id" padding="6" unsigned="false" nullable="false" identity="true" comment="ID" />
