@@ -9,10 +9,12 @@ use Ziffity\Task\Model\ResourceModel\Custom\CollectionFactory as CustomCartColle
 use Magento\Framework\Api\DataObjectHelper;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\App\ObjectManager;
+use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Reflection\DataObjectProcessor;
+use Ziffity\Task\Api\Data\CustomInterfaceFactory;
 
 class Repository implements RepositoryInterface
 {
@@ -27,7 +29,7 @@ class Repository implements RepositoryInterface
     public function __construct(
         ResourceCustomCart $resource,
         CustomFactory $customCartFactory,
-        \Ziffity\Task\Api\Data\CustomInterfaceFactory $dataCustomCartFactory,
+        CustomInterfaceFactory $dataCustomCartFactory,
         CustomCartCollectionFactory $customCartCollectionFactory,
         Data\CartInterfaceFactory $searchResultsFactory,
         DataObjectHelper $dataObjectHelper,
@@ -61,7 +63,7 @@ class Repository implements RepositoryInterface
         }
         return $customCart;
     }
-    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $criteria)
+    public function getList(SearchCriteriaInterface $criteria)
     {
         $collection = $this->customCartCollectionFactory->create();
 
