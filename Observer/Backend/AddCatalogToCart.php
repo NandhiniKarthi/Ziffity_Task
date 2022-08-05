@@ -3,18 +3,36 @@
  namespace Ziffity\Task\Observer\Backend;
 
  use Magento\Framework\Message\ManagerInterface;
+
  use Magento\Checkout\Model\Session;
+
  use Magento\Framework\MessageQueue\PublisherInterface;
+
  use Magento\Framework\Serialize\SerializerInterface;
+
  use Magento\Catalog\Model\Product;
+
  use Magento\Framework\Event\Observer;
+
  use Magento\Framework\Event\ObserverInterface;
+
  use Psr\Log\LoggerInterface;
+
  use Ziffity\Task\Model\Custom;
+
  use Ziffity\Task\Model\Repository;
+
+ /**
+  * AddCatalogToCart
+  */
 
  class AddCatalogToCart implements ObserverInterface
  {
+     /**
+      * __construct
+      *
+      * @return void
+      */
      public function __construct(
          ManagerInterface $message,
          Session $session,
@@ -31,6 +49,12 @@
          $this->cart = $cart;
          $this->repository = $repository;
      }
+     /**
+      * execute
+      *
+      * @param  mixed $observer
+      * @return void
+      */
      public function execute(Observer $observer)
      {
          $sku = $observer->getEvent()->getData('product')->getSku();
@@ -49,11 +73,7 @@
                      __('added to queue')
                  );
              } catch (\Exception $e) {
-                 $this->logger->critical(
-                     $e->addSuccess(
-                     __('queue not added')
-                 )
-                 );
+                 $this->_messageManager->addError($e->getMessage());
              }
          }
      }

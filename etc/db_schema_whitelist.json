@@ -5,7 +5,9 @@
             "sku": true,
             "customerid": true,
             "createdat": true,
-            "quoteid": true
+            "quoteid": true,
+            "created_at": true,
+            "updated_at": true
         },
         "constraint": {
             "PRIMARY": true
