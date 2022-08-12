@@ -57,7 +57,7 @@ class AddCatalogToCart implements ObserverInterface
         if ($sku) {
             try {
                 $this->_messageManager->addSuccessMessage(
-                    __('added to queue')
+                    __('Successfully added to queue')
                 );
             } catch (\Exception $e) {
                 $this->_messageManager->addErrorMessage($e->getMessage());
