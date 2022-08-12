@@ -21,7 +21,7 @@
     <route url="/V1/crud/deleteById" method="DELETE">
         <service class="Ziffity\Task\Api\RepositoryInterface" method="deleteById"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="self"/>
         </resources>
     </route>
 </routes>

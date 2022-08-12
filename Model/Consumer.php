@@ -12,7 +12,7 @@ use Ziffity\Task\Api\Data\CustomInterface;
 class Consumer
 {
     private $logger;
-    private $customCartRepository;    
+    private $customCartRepository;
     /**
      * __construct
      *
@@ -25,7 +25,7 @@ class Consumer
     ) {
         $this->logger = $logger;
         $this->customCartRepository = $customCartRepository;
-    }    
+    }
     /**
      * process
      *

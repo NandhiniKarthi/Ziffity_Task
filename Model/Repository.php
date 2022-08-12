@@ -16,6 +16,7 @@ use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Reflection\DataObjectProcessor;
 use Ziffity\Task\Api\Data\CustomInterfaceFactory;
+
 class Repository implements RepositoryInterface
 {
     protected $resource;
@@ -25,7 +26,7 @@ class Repository implements RepositoryInterface
     protected $dataObjectHelper;
     protected $dataObjectProcessor;
     protected $dataCustomCartFactory;
-    private $collectionProcessor;    
+    private $collectionProcessor;
     /**
      * __construct
      *
@@ -49,7 +50,7 @@ class Repository implements RepositoryInterface
         $this->dataCustomCartFactory = $dataCustomCartFactory;
         $this->dataObjectProcessor = $dataObjectProcessor;
         $this->collectionProcessor = $collectionProcessor;
-    }    
+    }
     /**
      * save
      *
@@ -71,7 +72,7 @@ class Repository implements RepositoryInterface
      * @param  mixed $cartId
      * @return void
      */
-    public function getById($cartId)
+    public function getReferenceById($cartId)
     {
         $customCart = $this->customCartFactory->create();
         $this->resource->load($customCart, $cartId);
@@ -89,13 +90,11 @@ class Repository implements RepositoryInterface
     public function getList(SearchCriteriaInterface $criteria)
     {
         $collection = $this->customCartCollectionFactory->create();
-
         $this->collectionProcessor->process($criteria, $collection);
-
         $searchResults = $this->searchResultsFactory->create();
         $searchResults->setItems($collection->getItems());
         return  $searchResults ;
-    }    
+    }
     /**
      * delete
      *
@@ -110,7 +109,7 @@ class Repository implements RepositoryInterface
             throw new CouldNotDeleteException(__($exception->getMessage()));
         }
         return true;
-    }    
+    }
     /**
      * deleteById
      *
@@ -119,6 +118,6 @@ class Repository implements RepositoryInterface
      */
     public function deleteById($cartId)
     {
-        return $this->delete($this->getById($cartId));
+        return $this->delete($this->getReferenceById($cartId));
     }
 }

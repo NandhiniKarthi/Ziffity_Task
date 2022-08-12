@@ -14,7 +14,7 @@ class Custom extends AbstractModel implements CustomInterface
      */
     protected function _construct()
     {
-        $this->_init("Ziffity\Task\Model\ResourceModel\Custom");
+        $this->_init(\Ziffity\Task\Model\ResourceModel\Custom::class);
     }
     /**
      * get CustomCartId
@@ -26,87 +26,87 @@ class Custom extends AbstractModel implements CustomInterface
         return $this->getData(self::CUSTOMCART_ID);
     }
     /**
-         * set CustomCartId
-         *
-         * @param  mixed $customcart_id
-         * @return void
-         */
+     * set CustomCartId
+     *
+     * @param  mixed $customcart_id
+     * @return void
+     */
     public function setCustomCartId($customcart_id)
     {
         return $this->setData(self::CUSTOMCART_ID, $customcart_id);
     }
     /**
-         * get Sku
-         *
-         * @return void
-         */
+     * get Sku
+     *
+     * @return void
+     */
     public function getSku()
     {
         return $this->getData(self::SKU);
     }
     /**
-         * set Sku
-         *
-         * @param  mixed $sku
-         * @return void
-         */
+     * set Sku
+     *
+     * @param  mixed $sku
+     * @return void
+     */
     public function setSku($sku)
     {
         return $this->setData(self::SKU, $sku);
     }
     /**
-         * get CustomerId
-         *
-         * @return void
-         */
+     * get CustomerId
+     *
+     * @return void
+     */
     public function getCustomerId()
     {
         return $this->getData(self::CUSTOMER_ID);
     }
     /**
-         * set CustomerId
-         *
-         * @param  mixed $customer_id
-         * @return void
-         */
+     * set CustomerId
+     *
+     * @param  mixed $customer_id
+     * @return void
+     */
     public function setCustomerId($customer_id)
     {
         return $this->setData(self::CUSTOMER_ID, $customer_id);
     }
     /**
-         * get QuoteId
-         *
-         * @return void
-         */
+     * get QuoteId
+     *
+     * @return void
+     */
     public function getQuoteId()
     {
         return $this->getData(self::QUOTE_ID);
     }
     /**
-         * set QuoteId
-         *
-         * @param  mixed $quote_id
-         * @return void
-         */
+     * set QuoteId
+     *
+     * @param  mixed $quote_id
+     * @return void
+     */
     public function setQuoteId($quote_id)
     {
         return $this->setData(self::QUOTE_ID, $quote_id);
     }
     /**
-         * get CreatedAt
-         *
-         * @return void
-         */
+     * get CreatedAt
+     *
+     * @return void
+     */
     public function getCreatedAt()
     {
         return $this->getData(self::CREATED_AT);
     }
     /**
-         * set CreatedAt
-         *
-         * @param  mixed $created_at
-         * @return void
-         */
+     * set CreatedAt
+     *
+     * @param  mixed $created_at
+     * @return void
+     */
     public function setCreatedAt($created_at)
     {
         return $this->setData(self::CREATED_AT, $created_at);
@@ -118,7 +118,7 @@ class Custom extends AbstractModel implements CustomInterface
      */
     public function getUpdatedAt()
     {
-        return $this->getData(Self::UPDATED_AT);
+        return $this->getData(self::UPDATED_AT);
     }
     /**
      * Set Updated At
@@ -128,6 +128,6 @@ class Custom extends AbstractModel implements CustomInterface
      */
     public function setUpdatedAt($updated_at)
     {
-        return $this->setData(Self::UPDATED_AT, $updated_at);
+        return $this->setData(self::UPDATED_AT, $updated_at);
     }
 }

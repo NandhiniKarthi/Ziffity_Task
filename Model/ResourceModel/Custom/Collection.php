@@ -4,11 +4,9 @@ namespace Ziffity\Task\Model\ResourceModel\Custom;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
-/**
- * Collection
- */
 class Collection extends AbstractCollection
-{    
+{
+
     /**
      * _construct
      *
@@ -16,6 +14,6 @@ class Collection extends AbstractCollection
      */
     protected function _construct()
     {
-        $this->_init("Ziffity\Task\Model\Custom", "Ziffity\Task\Model\ResourceModel\Custom");
+        $this->_init(\Ziffity\Task\Model\Custom::class, \Ziffity\Task\Model\ResourceModel\Custom::class);
     }
 }
