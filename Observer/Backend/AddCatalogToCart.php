@@ -3,7 +3,7 @@
 namespace Ziffity\Task\Observer\Backend;
 
 use Magento\Framework\Message\ManagerInterface;
-use Magento\Checkout\Model\Session;
+use Magento\Checkout\Model\Session\Proxy as Session;
 use Magento\Framework\MessageQueue\PublisherInterface;
 use Magento\Framework\Serialize\SerializerInterface;
 use Magento\Catalog\Model\Product;
