@@ -5,7 +5,8 @@
       <column xsi:type="varchar" name="sku" nullable="false" length="25" comment="Sku" />
       <column xsi:type="varchar" name="customerid" nullable="true" length="25" comment="C_Id" />
       <column xsi:type="varchar" name="quoteid" nullable="true" length="25" comment="Q_Id" />
-      <column xsi:type="timestamp" name="createdat" default="CURRENT_TIMESTAMP" nullable="false" comment="Created_At" />
+      <column xsi:type="timestamp" name="created_at" default="CURRENT_TIMESTAMP" nullable="false" comment="Created_At" />
+      <column xsi:type="timestamp"  name="updated_at" default="CURRENT_TIMESTAMP" on_update="true" nullable="false"/>
       <constraint xsi:type="primary" referenceId="PRIMARY">
          <column name="id" />
       </constraint>

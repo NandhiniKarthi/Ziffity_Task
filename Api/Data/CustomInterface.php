@@ -3,7 +3,7 @@
 namespace Ziffity\Task\Api\Data;
 
 /**
- * CustomCartInterface interface
+ * CustomInterface interface
  */
 interface CustomInterface
 {
@@ -11,15 +11,14 @@ interface CustomInterface
     public const SKU                   = 'sku';
     public const CUSTOMER_ID           = 'customerid';
     public const QUOTE_ID              = 'quoteid';
-    public const CREATED_AT            = 'createdat';
-
+    public const CREATED_AT            = 'created_at';
+    public const UPDATED_AT            = 'updated_at';
     /**
      * GetCustomCartId
      *
      * @return int|null
      */
     public function getCustomCartId();
-
     /**
      * Set CustomCart Id
      *
@@ -27,14 +26,12 @@ interface CustomInterface
      * @return CustomInterface
      */
     public function setCustomCartId($customcart_id);
-
     /**
      * Get Sku
      *
      * @return string
      */
     public function getSku();
-
     /**
      * Set Sku
      *
@@ -42,14 +39,12 @@ interface CustomInterface
      * @return CustomCartInterface
      */
     public function setSku($sku);
-
     /**
      * Get Customer Id
      *
      * @return int
      */
     public function getCustomerId();
-
     /**
      * Set Customer Id
      *
@@ -57,14 +52,12 @@ interface CustomInterface
      * @return CustomCartInterface
      */
     public function setCustomerId($customer_id);
-
     /**
      * Get Quote Id
      *
      * @return string
      */
     public function getQuoteId();
-
     /**
      * Undocumented function
      *
@@ -72,14 +65,12 @@ interface CustomInterface
      * @return CustomCartInterface
      */
     public function setQuoteId($quote_id);
-
     /**
      * Get Created At
      *
      * @return string
      */
     public function getCreatedAt();
-
     /**
      * Set Created At
      *
@@ -87,4 +78,17 @@ interface CustomInterface
      * @return CustomCartInterface
      */
     public function setCreatedAt($created_at);
+    /**
+     * Get Updated At
+     *
+     * @return string
+     */
+    public function getUpdatedAt();
+    /**
+     * Set Updated At
+     *
+     * @param  [string] $updated_at
+     * @return CustomInterface
+     */
+    public function setUpdatedAt($updated_at);
 }

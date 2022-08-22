@@ -13,6 +13,11 @@ class Consumer
 {
     private $logger;
     private $customCartRepository;
+    /**
+     * __construct
+     *
+     * @return void
+     */
     public function __construct(
         CustomInterface $data,
         LoggerInterface $logger,
@@ -21,6 +26,12 @@ class Consumer
         $this->logger = $logger;
         $this->customCartRepository = $customCartRepository;
     }
+    /**
+     * process
+     *
+     * @param  mixed $data
+     * @return void
+     */
     public function process(CustomInterface $data)
     {
         try {

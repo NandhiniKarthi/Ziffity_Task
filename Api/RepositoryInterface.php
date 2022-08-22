@@ -2,6 +2,9 @@
 
 namespace Ziffity\Task\Api;
 
+use Ziffity\Task\Api\Data\CustomInterface;
+use \Magento\Framework\Api\SearchCriteriaInterface;
+
 interface RepositoryInterface
 {
     /**
@@ -11,7 +14,7 @@ interface RepositoryInterface
      * @return \Ziffity\Task\Api\Data\CustomInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function save(Data\CustomInterface $Cart);
+    public function save(CustomInterface $cart);
 
     /**
      * Retrieve Cart.
@@ -20,7 +23,7 @@ interface RepositoryInterface
      * @return \Ziffity\Task\Api\Data\CustomInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function getById($CartId);
+    public function getReferenceById($cartId);
 
     /**
      * Retrieve customCarts matching the specified criteria.
@@ -30,7 +33,7 @@ interface RepositoryInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
 
-    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria);
+    public function getList(SearchCriteriaInterface $searchCriteria);
 
     /**
      * Delete Cart.
@@ -39,7 +42,7 @@ interface RepositoryInterface
      * @return bool true on success
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function delete(Data\CustomInterface $Cart);
+    public function delete(CustomInterface $cart);
 
     /**
      * Delete Cart by ID.
@@ -49,5 +52,5 @@ interface RepositoryInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function deleteById($CartId);
+    public function deleteById($cartId);
 }
