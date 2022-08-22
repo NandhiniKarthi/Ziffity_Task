@@ -3,8 +3,7 @@
 namespace Ziffity\Task\Model;
 
 use Ziffity\Task\Api\RepositoryInterface;
-use Ziffity\Task\Api\Data\CustomInterface;
-use Ziffity\Task\Api\Data\CartInterfaceFactory;
+use Ziffity\Task\Api\Data;
 use Ziffity\Task\Model\ResourceModel\Custom as ResourceCustomCart;
 use Ziffity\Task\Model\ResourceModel\Custom\CollectionFactory as CustomCartCollectionFactory;
 use Magento\Framework\Api\DataObjectHelper;
@@ -27,17 +26,13 @@ class Repository implements RepositoryInterface
     protected $dataObjectProcessor;
     protected $dataCustomCartFactory;
     private $collectionProcessor;
-    /**
-     * __construct
-     *
-     * @return void
-     */
+
     public function __construct(
         ResourceCustomCart $resource,
         CustomFactory $customCartFactory,
         CustomInterfaceFactory $dataCustomCartFactory,
         CustomCartCollectionFactory $customCartCollectionFactory,
-        CartInterfaceFactory $searchResultsFactory,
+        Data\CartInterfaceFactory $searchResultsFactory,
         DataObjectHelper $dataObjectHelper,
         DataObjectProcessor $dataObjectProcessor,
         CollectionProcessorInterface $collectionProcessor
@@ -51,42 +46,25 @@ class Repository implements RepositoryInterface
         $this->dataObjectProcessor = $dataObjectProcessor;
         $this->collectionProcessor = $collectionProcessor;
     }
-    /**
-     * save
-     *
-     * @param  mixed $cart
-     * @return void
-     */
-    public function save(CustomInterface $cart)
+
+    public function save(Data\CustomInterface $Cart)
     {
         try {
-            $this->resource->save($cart);
+            $this->resource->save($Cart);
         } catch (\Exception $exception) {
             throw new CouldNotSaveException(__($exception->getMessage()));
         }
-        return $cart;
+        return $Cart;
     }
-    /**
-     * getById
-     *
-     * @param  mixed $cartId
-     * @return void
-     */
-    public function getReferenceById($cartId)
+    public function getById($CartId)
     {
         $customCart = $this->customCartFactory->create();
-        $this->resource->load($customCart, $cartId);
+        $this->resource->load($customCart, $CartId);
         if (!$customCart->getCustomCartId()) {
-            throw new NoSuchEntityException(__(' "%1" ID doesn\'t exist.', $cartId));
+            throw new NoSuchEntityException(__(' "%1" ID doesn\'t exist.', $CartId));
         }
         return $customCart;
     }
-    /**
-     * getList
-     *
-     * @param  mixed $criteria
-     * @return void
-     */
     public function getList(SearchCriteriaInterface $criteria)
     {
         $collection = $this->customCartCollectionFactory->create();
@@ -95,29 +73,17 @@ class Repository implements RepositoryInterface
         $searchResults->setItems($collection->getItems());
         return  $searchResults ;
     }
-    /**
-     * delete
-     *
-     * @param  mixed $cart
-     * @return void
-     */
-    public function delete(CustomInterface $cart)
+    public function delete(Data\CustomInterface $Cart)
     {
         try {
-            $this->resource->delete($cart);
+            $this->resource->delete($Cart);
         } catch (\Exception $exception) {
             throw new CouldNotDeleteException(__($exception->getMessage()));
         }
         return true;
     }
-    /**
-     * deleteById
-     *
-     * @param  mixed $cartId
-     * @return void
-     */
-    public function deleteById($cartId)
+    public function deleteById($CartId)
     {
-        return $this->delete($this->getReferenceById($cartId));
+        return $this->delete($this->getById($CartId));
     }
 }
